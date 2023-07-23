@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title #{title}
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Custom Object Table
+    a(href="/update") Add/Update this table
+    table
+      thead
+        tr
+          th ID
+          th Name
+          th Bio
+          th Description
+          th Action
+      tbody
+        each item in data
+          tr
+            td= item.id
+            td= item.properties.name
+            td= item.properties.bio
+            td= item.properties.description
+            td
+              a(href=`/update?id=${item.id}`) Edit
