@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
 
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
-app.get('/update', async (req, res) => {
+app.get('/update-cobj', async (req, res) => {
     if (req.query.id) {
         const objectId = req.query.id;
         const url = `https://api.hubspot.com/crm/v3/objects/pets/${objectId}?properties=name,bio,description,email`;
@@ -41,21 +41,21 @@ app.get('/update', async (req, res) => {
         try {
             const response = await axios.get(url, { headers });
             const data = response.data;
-            res.render('update', { title: 'Update Custom Object | My HubSpot App', data });
+            res.render('updates', { title: 'Update Custom Object | My HubSpot App', data });
         } catch (error) {
             console.error(error);
             res.status(500).send("Error retrieving custom object data");
         }
     } else {
         // no existing object ID, render the form for creating new object
-        res.render('update', { title: 'Create Custom Object | My HubSpot App' });
+        res.render('updates', { title: 'Create Custom Object | My HubSpot App' });
     }
 });
 
 
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
 
-app.post('/update', async (req, res) => {
+app.post('/update-cobj', async (req, res) => {
     if (req.query.id) {
         const objectId = req.query.id;
         const url = `https://api.hubspot.com/crm/v3/objects/pets/${objectId}`;

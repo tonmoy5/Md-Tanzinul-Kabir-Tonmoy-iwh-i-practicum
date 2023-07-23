@@ -6,7 +6,7 @@ html
   body
     h1 #{data ? "Update Custom Object" : "Create Custom Object"}
     a(href="/") Return to homepage
-    form(method="POST" action=data ? `/update?id=${data.id}` : "/update")
+    form(method="POST" action=data ? `/update-cobj?id=${data.id}` : "/update-cobj")
       .inputDiv
         label Name:
         input(type="text" name="name" value=data ? data.properties.name : '')

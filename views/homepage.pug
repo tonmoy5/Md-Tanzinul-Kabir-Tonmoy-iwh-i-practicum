@@ -6,7 +6,7 @@ html
     link(rel="stylesheet", href="/css/style.css")
   body
     h1 Custom Object Table
-    a(href="/update") Add/Update this table
+    a(href="/update-cobj") Add/Update this table
     table
       thead
         tr
@@ -23,4 +23,4 @@ html
             td= item.properties.bio
             td= item.properties.description
             td
-              a(href=`/update?id=${item.id}`) Edit
+              a(href=`/update-cobj?id=${item.id}`) Edit
