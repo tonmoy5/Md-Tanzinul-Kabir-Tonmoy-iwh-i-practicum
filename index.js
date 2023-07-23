@@ -91,7 +91,6 @@ app.post('/update', async (req, res) => {
                 description: req.body.description,
             }
         };
-        console.log(newObject);
         try {
             await axios.post(url, newObject, { headers });
             res.redirect('/');
