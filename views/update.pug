@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 #{data ? "Update Custom Object" : "Create Custom Object"}
+    a(href="/") Return to homepage
+    form(method="POST" action=data ? `/update?id=${data.id}` : "/update")
+      .inputDiv
+        label Name:
+        input(type="text" name="name" value=data ? data.properties.name : '')
+      .inputDiv
+        label Bio:
+        input(type="text" name="bio" value=data ? data.properties.bio : '')
+      .inputDiv
+        label Description:
+        input(type="text" name="description" value=data ? data.properties.description : '')
+      button(type="submit") #{data ? "Update" : "Create"}
